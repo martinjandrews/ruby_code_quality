@@ -1,0 +1,1 @@
+java -jar ../codecop/script/bin/simian-2.2.22.jar -language=ruby -includes="lib/**/*.rb" -includes="app/**/*.rb" -threshold=4

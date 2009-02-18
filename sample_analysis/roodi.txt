@@ -1,0 +1,79 @@
+app/helpers/application_helper.rb:66 - Method name "model_date_select" has 8 parameters.  It should have 5 or less.
+app/models/ccb_eligibility.rb:69 - Method name "match_or_construct_new_record" has 6 parameters.  It should have 5 or less.
+app/models/ccb_eligibility.rb:79 - Method name "initialize" has 7 parameters.  It should have 5 or less.
+app/controllers/application.rb:114 - Method name "supported_browser_required" has a cyclomatic complexity is 11.  It should be 8 or less.
+app/controllers/billing_controller.rb:16 - Method name "create" has a cyclomatic complexity is 15.  It should be 8 or less.
+app/controllers/ccms/attendances_controller.rb:78 - Method name "create" has a cyclomatic complexity is 20.  It should be 8 or less.
+app/controllers/ccms/invoices_controller.rb:10 - Method name "index" has a cyclomatic complexity is 12.  It should be 8 or less.
+app/controllers/ccms/invoices_controller.rb:58 - Method name "create_invoice" has a cyclomatic complexity is 75.  It should be 8 or less.
+app/controllers/ccms/reporting/fahcsia_payments_controller.rb:6 - Method name "show" has a cyclomatic complexity is 9.  It should be 8 or less.
+app/controllers/ccms/reporting/overview_controller.rb:6 - Method name "show" has a cyclomatic complexity is 11.  It should be 8 or less.
+app/controllers/ccms/reporting/owing_controller.rb:6 - Method name "show" has a cyclomatic complexity is 16.  It should be 8 or less.
+app/controllers/ccms/sign_in_sheet_controller.rb:9 - Method name "show" has a cyclomatic complexity is 19.  It should be 8 or less.
+app/controllers/registrations_controller.rb:19 - Method name "create_registration" has a cyclomatic complexity is 11.  It should be 8 or less.
+app/controllers/registrations_controller.rb:95 - Method name "send_thankyou_email" has a cyclomatic complexity is 10.  It should be 8 or less.
+app/controllers/sessions_controller.rb:41 - Method name "default_url" has a cyclomatic complexity is 11.  It should be 8 or less.
+app/controllers/signup_controller.rb:23 - Method name "create" has a cyclomatic complexity is 17.  It should be 8 or less.
+app/controllers/signup_controller.rb:360 - Method name "find_time_zone_from_postcode" has a cyclomatic complexity is 21.  It should be 8 or less.
+app/helpers/application_helper.rb:133 - Method name "route_for" has a cyclomatic complexity is 21.  It should be 8 or less.
+app/helpers/monitor/quarantine_helper.rb:3 - Method name "request_type_name" has a cyclomatic complexity is 14.  It should be 8 or less.
+app/models/child.rb:159 - Method name "create_parent_login" has a cyclomatic complexity is 19.  It should be 8 or less.
+app/models/child.rb:234 - Method name "assign_to_family" has a cyclomatic complexity is 16.  It should be 8 or less.
+app/models/child.rb:302 - Method name "before_save" has a cyclomatic complexity is 10.  It should be 8 or less.
+app/models/multi_session_schedule.rb:15 - Method name "cleanup!" has a cyclomatic complexity is 9.  It should be 8 or less.
+app/controllers/ccms/attendances_controller.rb:98 - Block cyclomatic complexity is 11.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:113 - Block cyclomatic complexity is 7.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:159 - Block cyclomatic complexity is 5.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:192 - Block cyclomatic complexity is 20.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:267 - Block cyclomatic complexity is 7.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:267 - Block cyclomatic complexity is 6.  It should be 4 or less.
+app/controllers/ccms/invoices_controller.rb:289 - Block cyclomatic complexity is 5.  It should be 4 or less.
+app/controllers/ccms/reporting/owing_controller.rb:46 - Block cyclomatic complexity is 13.  It should be 4 or less.
+app/models/ccms_attendance.rb:145 - Block cyclomatic complexity is 7.  It should be 4 or less.
+app/models/multi_session_schedule.rb:16 - Block cyclomatic complexity is 9.  It should be 4 or less.
+app/models/schedule.rb:16 - Block cyclomatic complexity is 5.  It should be 4 or less.
+app/models/service.rb:127 - Block cyclomatic complexity is 7.  It should be 4 or less.
+app/helpers/monitor/quarantine_helper.rb:4 - Case statement is missing an else clause.
+app/helpers/registrations_helper.rb:4 - Case statement is missing an else clause.
+app/helpers/users_helper.rb:67 - Method name "link_to_login_with_IP" should match pattern /^[_a-z<>=\[\]|+-\/\*`]+[_a-z0-9_<>=~@\[\]]*[=!\?]?$/
+lib/validators.rb:4 - Rescue block should not be empty.
+app/controllers/ccms/child_tabs/registration_forms_controller.rb:58 - Rescue block should not be empty.
+app/controllers/ccms/child_tabs/registration_forms_controller.rb:69 - Rescue block should not be empty.
+app/controllers/monitor/log_controller.rb:19 - Rescue block should not be empty.
+app/controllers/registrations_controller.rb:33 - Rescue block should not be empty.
+app/controllers/registrations_controller.rb:44 - Rescue block should not be empty.
+app/controllers/registrations_controller.rb:61 - Rescue block should not be empty.
+app/controllers/registrations_controller.rb:68 - Rescue block should not be empty.
+app/controllers/signup_controller.rb:274 - Rescue block should not be empty.
+app/models/billing.rb:32 - Rescue block should not be empty.
+app/models/soap_request.rb:41 - Rescue block should not be empty.
+app/models/soap_request.rb:62 - Rescue block should not be empty.
+app/controllers/billing_controller.rb:16 - Method "create" has 54 lines.  It should have 20 or less.
+app/controllers/ccms/attendances_controller.rb:14 - Method "index" has 23 lines.  It should have 20 or less.
+app/controllers/ccms/attendances_controller.rb:78 - Method "create" has 64 lines.  It should have 20 or less.
+app/controllers/ccms/child_tabs/attendances_controller.rb:55 - Method "update" has 22 lines.  It should have 20 or less.
+app/controllers/ccms/child_tabs/registration_forms_controller.rb:52 - Method "update" has 25 lines.  It should have 20 or less.
+app/controllers/ccms/child_tabs/schedules_controller.rb:45 - Method "update" has 22 lines.  It should have 20 or less.
+app/controllers/ccms/invoices_controller.rb:10 - Method "index" has 28 lines.  It should have 20 or less.
+app/controllers/ccms/invoices_controller.rb:58 - Method "create_invoice" has 222 lines.  It should have 20 or less.
+app/controllers/ccms/invoices_controller.rb:353 - Method "estimate_for" has 24 lines.  It should have 20 or less.
+app/controllers/ccms/reporting/fahcsia_payments_controller.rb:6 - Method "show" has 24 lines.  It should have 20 or less.
+app/controllers/ccms/reporting/income_controller.rb:6 - Method "show" has 29 lines.  It should have 20 or less.
+app/controllers/ccms/reporting/overview_controller.rb:6 - Method "show" has 28 lines.  It should have 20 or less.
+app/controllers/ccms/reporting/owing_controller.rb:6 - Method "show" has 61 lines.  It should have 20 or less.
+app/controllers/ccms/reporting/utilisations_controller.rb:8 - Method "show" has 27 lines.  It should have 20 or less.
+app/controllers/ccms/service_details_controller.rb:14 - Method "create" has 26 lines.  It should have 20 or less.
+app/controllers/ccms/sign_in_sheet_controller.rb:9 - Method "show" has 52 lines.  It should have 20 or less.
+app/controllers/monitor/clients_controller.rb:56 - Method "create" has 59 lines.  It should have 20 or less.
+app/controllers/parents/fees_controller.rb:5 - Method "show" has 22 lines.  It should have 20 or less.
+app/controllers/registrations_controller.rb:19 - Method "create_registration" has 36 lines.  It should have 20 or less.
+app/controllers/signup_controller.rb:23 - Method "create" has 44 lines.  It should have 20 or less.
+app/controllers/signup_controller.rb:280 - Method "create_demo_content" has 41 lines.  It should have 20 or less.
+app/controllers/signup_controller.rb:360 - Method "find_time_zone_from_postcode" has 21 lines.  It should have 20 or less.
+app/models/child.rb:159 - Method "create_parent_login" has 39 lines.  It should have 20 or less.
+app/models/child.rb:234 - Method "assign_to_family" has 23 lines.  It should have 20 or less.
+app/models/service.rb:252 - Method "recache_regular_service_days" has 22 lines.  It should have 20 or less.
+app/controllers/ccms/invoices_controller.rb:1 - Class "s(:colon2, s(:const, :Ccms), :InvoicesController)" has 315 lines.  It should have 300 or less.
+app/helpers/users_helper.rb:71 - Found = in conditional.  It should probably be an ==
+
+Found 77 errors.

@@ -1,0 +1,907 @@
+"lib/authenticated_system.rb" -- 4 warnings:
+[Nested Iterators] #access_denied has nested iterators
+[Control Couple] #current_user= is controlled by argument new_user
+[Duplication] #login_from_cookie calls cookies[auth_token] more than once
+[Duplication] #login_from_session calls session[user_id] more than once
+
+"lib/authenticated_test_helper.rb" -- 2 warnings:
+[Control Couple] #authorize_as is controlled by argument user
+[Control Couple] #login_as is controlled by argument user
+
+"lib/browsers.rb" -- 4 warnings:
+[Duplication] #browser_is_firefox calls request.user_agent more than once
+[Duplication] #browser_is_ie calls request.user_agent more than once
+[Duplication] #browser_is_opera calls request.user_agent more than once
+[Duplication] #browser_is_safari calls request.user_agent more than once
+
+"lib/date_helpers.rb" -- 16 warnings:
+[Utility Function] #day_numbers doesn't depend on instance state
+[Utility Function] #friday_of_week doesn't depend on instance state
+[Utility Function] #get_week doesn't depend on instance state
+[Long Method] #get_week has approx 7 statements
+[Feature Envy] #get_week refers to week more than self
+[Duplication] #monday_of_week calls day.wday more than once
+[Utility Function] #monday_of_week doesn't depend on instance state
+[Feature Envy] #monday_of_week refers to day more than self
+[Utility Function] #saturday_of_week doesn't depend on instance state
+[Duplication] #sunday_of_week calls day.wday more than once
+[Utility Function] #sunday_of_week doesn't depend on instance state
+[Feature Envy] #sunday_of_week refers to day more than self
+[Utility Function] #thursday_of_week doesn't depend on instance state
+[Utility Function] #tuesday_of_week doesn't depend on instance state
+[Utility Function] #wednesday_of_week doesn't depend on instance state
+[Utility Function] #week_days doesn't depend on instance state
+
+"lib/invoice_classes.rb" -- 4 warnings:
+[Utility Function] MissingPayment#invoice_number? doesn't depend on instance state
+[Duplication] MissingSession#session_date calls [:self].session_start more than once
+[Duplication] MissingSession#session_end_time calls [:self].session_end more than once
+[Duplication] MissingSession#session_start_time calls [:self].session_start more than once
+
+"lib/memoisation.rb" -- 6 warnings:
+[Duplication] #current_centre calls params[centre_id] more than once
+[Duplication] #current_centre calls params[scheme_id] more than once
+[Duplication] #current_client calls params[client_id] more than once
+[Duplication] #current_service calls params[id] more than once
+[Duplication] #current_service calls params[scheme_id] more than once
+[Duplication] #current_service calls params[service_id] more than once
+
+"lib/validators.rb" -- 1 warnings:
+[Utility Function] #valid_email_address? doesn't depend on instance state
+
+"app/controllers/application.rb" -- 23 warnings:
+[Utility Function] ApplicationController#bold_child_name doesn't depend on instance state
+[Feature Envy] ApplicationController#bold_child_name refers to child more than self
+[Duplication] ApplicationController#get_centre_from_domain calls domain.centre more than once
+[Duplication] ApplicationController#get_centre_from_domain calls domain.scheme more than once
+[Long Method] ApplicationController#get_centre_from_domain has approx 6 statements
+[Feature Envy] ApplicationController#get_centre_from_domain refers to domain more than self
+[Duplication] ApplicationController#get_client_from_domain calls domain.centre more than once
+[Feature Envy] ApplicationController#get_client_from_domain refers to domain more than self
+[Feature Envy] ApplicationController#load_fees_and_charges refers to child more than self
+[Utility Function] ApplicationController#monitor_url doesn't depend on instance state
+[Utility Function] ApplicationController#render_string_to_pdf doesn't depend on instance state
+[Long Parameter List] ApplicationController#render_string_to_pdf has 4 parameters
+[Long Method] ApplicationController#render_string_to_pdf has approx 15 statements
+[Control Couple] ApplicationController#render_string_to_pdf is controlled by argument landscape
+[Feature Envy] ApplicationController#render_string_to_pdf refers to pdf more than self
+[Long Parameter List] ApplicationController#render_to_pdf has 4 parameters
+[Utility Function] ApplicationController#set_monitor_time_zone doesn't depend on instance state
+[Duplication] ApplicationController#supported_browser_required calls match.to_a more than once
+[Duplication] ApplicationController#supported_browser_required calls match.to_a[1] more than once
+[Duplication] ApplicationController#supported_browser_required calls match.to_a[1].to_i more than once
+[Duplication] ApplicationController#supported_browser_required calls request.user_agent more than once
+[Long Method] ApplicationController#supported_browser_required has approx 9 statements
+[Long Method] ApplicationController#verify_user_and_url has approx 6 statements
+
+"app/controllers/billing_controller.rb" -- 21 warnings:
+[Duplication] BillingController#create calls errors.each more than once
+[Duplication] BillingController#create calls format.js more than once
+[Duplication] BillingController#create calls page.<<("$('#{key}').removeClassName('error');") more than once
+[Duplication] BillingController#create calls page[errors_table] more than once
+[Duplication] BillingController#create calls page[errors_table].hide more than once
+[Duplication] BillingController#create calls page[payment_failed] more than once
+[Duplication] BillingController#create calls page[payment_failed].hide more than once
+[Duplication] BillingController#create calls page[payment_spinner] more than once
+[Duplication] BillingController#create calls page[payment_spinner].hide more than once
+[Duplication] BillingController#create calls page[payment_submit] more than once
+[Duplication] BillingController#create calls page[payment_submit].show more than once
+[Duplication] BillingController#create calls params[amount] more than once
+[Duplication] BillingController#create calls params[client_id] more than once
+[Duplication] BillingController#create calls params[credit_card] more than once
+[Duplication] BillingController#create calls params[expiry_month] more than once
+[Duplication] BillingController#create calls params[expiry_year] more than once
+[Duplication] BillingController#create calls params[firstname] more than once
+[Duplication] BillingController#create calls params[lastname] more than once
+[Duplication] BillingController#create calls params[verification] more than once
+[Long Method] BillingController#create has approx 46 statements
+[Nested Iterators] BillingController#create has nested iterators
+
+"app/controllers/ccms/attendances_controller.rb" -- 31 warnings:
+[Duplication] colon2constCcmsAttendancesController#create calls Time.current more than once
+[Duplication] colon2constCcmsAttendancesController#create calls Time.current.to_date more than once
+[Duplication] colon2constCcmsAttendancesController#create calls Time.current.to_date.to_formatted_s(db) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls children.each more than once
+[Duplication] colon2constCcmsAttendancesController#create calls end_date.+(T) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls end_date.+(T).+(values[prefix.+(session_end_time)]) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls params[day] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls params[month] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls params[year] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls prefix.+(session_end_date) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls prefix.+(session_end_time) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls prefix.+(session_start_date) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls prefix.+(session_start_time) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls session.absence more than once
+[Duplication] colon2constCcmsAttendancesController#create calls start_date.+(T) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls start_date.+(T).+(values[prefix.+(session_start_time)]) more than once
+[Duplication] colon2constCcmsAttendancesController#create calls values[nominated_hours] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls values[prefix.+(session_end_date)] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls values[prefix.+(session_end_time)] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls values[prefix.+(session_start_date)] more than once
+[Duplication] colon2constCcmsAttendancesController#create calls values[prefix.+(session_start_time)] more than once
+[Long Method] colon2constCcmsAttendancesController#create has approx 50 statements
+[Duplication] colon2constCcmsAttendancesController#index calls @day.cwday more than once
+[Duplication] colon2constCcmsAttendancesController#index calls DAY_NAMES[@day.cwday] more than once
+[Duplication] colon2constCcmsAttendancesController#index calls Time.current more than once
+[Duplication] colon2constCcmsAttendancesController#index calls Time.current.to_date more than once
+[Duplication] colon2constCcmsAttendancesController#index calls params[day] more than once
+[Duplication] colon2constCcmsAttendancesController#index calls params[month] more than once
+[Duplication] colon2constCcmsAttendancesController#index calls params[year] more than once
+[Long Method] colon2constCcmsAttendancesController#index has approx 19 statements
+[Feature Envy] colon2constCcmsAttendancesController#index refers to today more than self
+
+"app/controllers/ccms/child_tabs/attendances_controller.rb" -- 17 warnings:
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[in_one_date] more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[in_one_date].+(T) more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[in_one_date].+(T).+(in_time) more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[out_one_date] more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[out_one_date].+(T) more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session calls values[out_one_date].+(T).+(out_time) more than once
+[Utility Function] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session doesn't depend on instance state
+[Long Method] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session has approx 16 statements
+[Feature Envy] colon2colon2constCcmsChildTabsAttendancesController#fill_in_session refers to values more than self
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#index calls params[day] more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#index calls params[month] more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#index calls params[year] more than once
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#show calls @attendance.status more than once
+[Long Method] colon2colon2constCcmsChildTabsAttendancesController#show has approx 8 statements
+[Duplication] colon2colon2constCcmsChildTabsAttendancesController#update calls params[nominated_hours] more than once
+[Long Method] colon2colon2constCcmsChildTabsAttendancesController#update has approx 17 statements
+[Feature Envy] colon2colon2constCcmsChildTabsAttendancesController#update refers to attendance more than self
+
+"app/controllers/ccms/child_tabs/charges_controller.rb" -- 3 warnings:
+[Duplication] colon2colon2constCcmsChildTabsChargesController#create calls params[id] more than once
+[Long Method] colon2colon2constCcmsChildTabsChargesController#create has approx 11 statements
+[Long Method] colon2colon2constCcmsChildTabsChargesController#destroy has approx 6 statements
+
+"app/controllers/ccms/child_tabs/fees_controller.rb" -- 4 warnings:
+[Duplication] colon2colon2constCcmsChildTabsFeesController#create calls params[id] more than once
+[Long Method] colon2colon2constCcmsChildTabsFeesController#create has approx 14 statements
+[Long Method] colon2colon2constCcmsChildTabsFeesController#destroy has approx 6 statements
+[Long Method] colon2colon2constCcmsChildTabsFeesController#show has approx 6 statements
+
+"app/controllers/ccms/child_tabs/registration_forms_controller.rb" -- 23 warnings:
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#edit calls @child.registration_form more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#edit calls Child.find(params[id]) more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#edit calls child.registration_form more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#edit calls current_service.registration_form_questions more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#edit calls params[id] more than once
+[Long Method] colon2colon2constCcmsChildTabsRegistrationFormsController#edit has approx 10 statements
+[Nested Iterators] colon2colon2constCcmsChildTabsRegistrationFormsController#edit has nested iterators
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#show calls Child.find(params[id]) more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#show calls child.registration_form more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#show calls format.pdf more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#show calls params[id] more than once
+[Long Method] colon2colon2constCcmsChildTabsRegistrationFormsController#show has approx 6 statements
+[Nested Iterators] colon2colon2constCcmsChildTabsRegistrationFormsController#show has nested iterators
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls Time.current more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls format.html more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls format.js more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls format.xml more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls params[child] more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls params[child][child_dob] more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls params[child][child_dob].split(/) more than once
+[Duplication] colon2colon2constCcmsChildTabsRegistrationFormsController#update calls params[details] more than once
+[Long Method] colon2colon2constCcmsChildTabsRegistrationFormsController#update has approx 16 statements
+[Nested Iterators] colon2colon2constCcmsChildTabsRegistrationFormsController#update has nested iterators
+
+"app/controllers/ccms/child_tabs/schedules_controller.rb" -- 13 warnings:
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls @child.enrolment_start more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls Time.current more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls Time.current.to_date more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls params[day] more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls params[month] more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#show calls params[year] more than once
+[Long Method] colon2colon2constCcmsChildTabsSchedulesController#show has approx 13 statements
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#update calls monday_of_week(date).advance([:hash, [:lit, :days], [:lit, -1]]) more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#update calls params[child] more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#update calls params[id] more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#update calls schedule.save more than once
+[Duplication] colon2colon2constCcmsChildTabsSchedulesController#update calls schedule.week_ending more than once
+[Long Method] colon2colon2constCcmsChildTabsSchedulesController#update has approx 22 statements
+
+"app/controllers/ccms/children_controller.rb" -- 10 warnings:
+[Duplication] colon2constCcmsChildrenController#create calls current_user.is more than once
+[Duplication] colon2constCcmsChildrenController#create calls current_user.is.==(FDC) more than once
+[Long Method] colon2constCcmsChildrenController#create has approx 7 statements
+[Long Method] colon2constCcmsChildrenController#index has approx 15 statements
+[Feature Envy] colon2constCcmsChildrenController#index refers to all_children more than self
+[Duplication] colon2constCcmsChildrenController#update calls child.save more than once
+[Duplication] colon2constCcmsChildrenController#update calls child.update_enrolment more than once
+[Duplication] colon2constCcmsChildrenController#update calls params[action_type] more than once
+[Long Method] colon2constCcmsChildrenController#update has approx 14 statements
+[Feature Envy] colon2constCcmsChildrenController#update refers to child more than self
+
+"app/controllers/ccms/convert_controller.rb" -- 1 warnings:
+[Nested Iterators] colon2constCcmsConvertController#thankyou has nested iterators
+
+"app/controllers/ccms/invoices_controller.rb" -- 109 warnings:
+[Utility Function] colon2constCcmsInvoicesController#apply_part_time_percentage doesn't depend on instance state
+[Feature Envy] colon2constCcmsInvoicesController#apply_part_time_percentage refers to estimate more than self
+[Feature Envy] colon2constCcmsInvoicesController#apply_part_time_percentage refers to hours more than self
+[Utility Function] colon2constCcmsInvoicesController#apply_school_child_percentage doesn't depend on instance state
+[Feature Envy] colon2constCcmsInvoicesController#apply_school_child_percentage refers to child more than self
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls @children.each more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls @children.first more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls @records[counter] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls Time.zone more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls a.child_id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls a.id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls a.week_ending more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance.ccb_payment_status more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance.child more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance.id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance.week_ending more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance_map[s.ccms_attendance_id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance_map[s.ccms_attendance_id].invoice_sessions more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendance_payments.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls attendances.each more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.amount more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.date more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.date.<(@from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.nil? more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.paid more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.paid.<(@from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls c.paid.>=(@hwstart) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls ccb_estimates.reject! more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls ccb_estimates.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls charges.reject! more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls charges.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls child.enrolment_end more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls child.enrolment_end.nil? more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls child.id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls child_attendance_map[a.child_id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls child_attendance_map[child.id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls current.day more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls current.month more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls current.year more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls day.+(_in) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls day.+(_out) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls family.opening_balance more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls missing_payments.<<(payment) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls missing_payments.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls missing_sessions.reject! more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls missing_sessions.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.amount more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance.week_ending more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance.week_ending.<(@from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance_id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance_id.nil? more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.ccms_attendance_id? more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.description more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.description? more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.paid more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls p.paid.<(@from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls payment_map[attendance.id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls payment_map[p.ccms_attendance_id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls payments.reject! more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls payments.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.ccms_attendance_id more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.fee more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.session_start more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.session_start.<(midnight_from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.session_start.>=(@midnight_of_hwstart) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.session_start.>=(midnight_from) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls s.session_start.to_date more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls schedule[day.+(_in)] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls schedule[day.+(_in)].split(:) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls schedule[day.+(_out)] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls schedule[day.+(_out)].split(:) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls service.hw_start_date more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls session.ccms_attendance more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls session_map[s.ccms_attendance_id] more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sessions.each more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sessions.reject! more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sessions.select more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sum.+([:or, [:call, [:dvar, :c], :amount], [:lit, 0]]) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sum.+([:or, [:call, [:dvar, :p], :amount], [:lit, 0]]) more than once
+[Duplication] colon2constCcmsInvoicesController#create_invoice calls sum.+([:or, [:call, [:dvar, :s], :fee], [:lit, 0]]) more than once
+[Long Method] colon2constCcmsInvoicesController#create_invoice has approx 128 statements
+[Nested Iterators] colon2constCcmsInvoicesController#create_invoice has nested iterators
+[Feature Envy] colon2constCcmsInvoicesController#create_invoice refers to current more than self
+[Duplication] colon2constCcmsInvoicesController#estimate_for calls attendance.child more than once
+[Duplication] colon2constCcmsInvoicesController#estimate_for calls attendance.week_ending more than once
+[Duplication] colon2constCcmsInvoicesController#estimate_for calls eligibility.eligible_hours more than once
+[Duplication] colon2constCcmsInvoicesController#estimate_for calls eligibility.eligible_hours.to_i more than once
+[Long Parameter List] colon2constCcmsInvoicesController#estimate_for has 4 parameters
+[Long Method] colon2constCcmsInvoicesController#estimate_for has approx 18 statements
+[Feature Envy] colon2constCcmsInvoicesController#estimate_for refers to attendance more than self
+[Duplication] colon2constCcmsInvoicesController#index calls format.html more than once
+[Duplication] colon2constCcmsInvoicesController#index calls format.pdf more than once
+[Duplication] colon2constCcmsInvoicesController#index calls pages.join more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[child_id] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[from_day] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[from_month] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[from_year] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[to_day] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[to_month] more than once
+[Duplication] colon2constCcmsInvoicesController#index calls params[to_year] more than once
+[Long Method] colon2constCcmsInvoicesController#index has approx 20 statements
+[Nested Iterators] colon2constCcmsInvoicesController#index has nested iterators
+[Duplication] colon2constCcmsInvoicesController#session_for_child_exists? calls attendance.id more than once
+[Duplication] colon2constCcmsInvoicesController#session_for_child_exists? calls session_map[attendance.id] more than once
+[Long Parameter List] colon2constCcmsInvoicesController#session_for_child_exists? has 4 parameters
+[Feature Envy] colon2constCcmsInvoicesController#session_for_child_exists? refers to attendance more than self
+[Utility Function] colon2constCcmsInvoicesController#three_child_percentage doesn't depend on instance state
+[Utility Function] colon2constCcmsInvoicesController#two_child_percentage doesn't depend on instance state
+
+"app/controllers/ccms/logos_controller.rb" -- 5 warnings:
+[Duplication] colon2constCcmsLogosController#create calls @centre.logo more than once
+[Duplication] colon2constCcmsLogosController#create calls format.js more than once
+[Long Method] colon2constCcmsLogosController#create has approx 7 statements
+[Nested Iterators] colon2constCcmsLogosController#create has nested iterators
+[Nested Iterators] colon2constCcmsLogosController#destroy has nested iterators
+
+"app/controllers/ccms/receipts_controller.rb" -- 2 warnings:
+[Long Method] colon2constCcmsReceiptsController#dates has approx 8 statements
+[Nested Iterators] colon2constCcmsReceiptsController#produce_pdf has nested iterators
+
+"app/controllers/ccms/registration_approvals_controller.rb" -- 3 warnings:
+[Duplication] colon2constCcmsRegistrationApprovalsController#update calls params[child] more than once
+[Long Method] colon2constCcmsRegistrationApprovalsController#update has approx 8 statements
+[Feature Envy] colon2constCcmsRegistrationApprovalsController#update refers to child more than self
+
+"app/controllers/ccms/reporting/attendances_controller.rb" -- 7 warnings:
+[Utility Function] colon2colon2constCcmsReportingAttendancesController#child_colour doesn't depend on instance state
+[Duplication] colon2colon2constCcmsReportingAttendancesController#show calls Time.zone more than once
+[Duplication] colon2colon2constCcmsReportingAttendancesController#show calls result[sessions] more than once
+[Long Method] colon2colon2constCcmsReportingAttendancesController#show has approx 15 statements
+[Nested Iterators] colon2colon2constCcmsReportingAttendancesController#show has nested iterators
+[Utility Function] colon2colon2constCcmsReportingAttendancesController#strip_seconds_from_db_time_format doesn't depend on instance state
+[Feature Envy] colon2colon2constCcmsReportingAttendancesController#strip_seconds_from_db_time_format refers to parts more than self
+
+"app/controllers/ccms/reporting/fahcsia_payments_controller.rb" -- 13 warnings:
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls @fahcsia_payments.each more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls @totals[payment.child_id] more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls @totals[payment.clearing_number] more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls @totals[payment.paid] more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls params[group] more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls params[group].==(child) more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls params[group].==(clearing) more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls payment.amount more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls payment.child_id more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls payment.clearing_number more than once
+[Duplication] colon2colon2constCcmsReportingFahcsiaPaymentsController#show calls payment.paid more than once
+[Long Method] colon2colon2constCcmsReportingFahcsiaPaymentsController#show has approx 13 statements
+[Nested Iterators] colon2colon2constCcmsReportingFahcsiaPaymentsController#show has nested iterators
+
+"app/controllers/ccms/reporting/income_controller.rb" -- 12 warnings:
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls AttendanceSession.connection more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls Time.zone more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls ccb.+(jfa) more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls current.day more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls current.month more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls current.year more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls current_service.id more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls end_midnight_of_current.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingIncomeController#show calls start_midnight_of_current.to_formatted_s(db) more than once
+[Long Method] colon2colon2constCcmsReportingIncomeController#show has approx 26 statements
+[Nested Iterators] colon2colon2constCcmsReportingIncomeController#show has nested iterators
+[Feature Envy] colon2colon2constCcmsReportingIncomeController#show refers to current more than self
+
+"app/controllers/ccms/reporting/overview_controller.rb" -- 7 warnings:
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls AttendanceSession.connection more than once
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls CcmsPayment.connection more than once
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls Time.zone more than once
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls current_service.id more than once
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls monday_of_from_week.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingOverviewController#show calls to.to_formatted_s(db) more than once
+[Long Method] colon2colon2constCcmsReportingOverviewController#show has approx 28 statements
+
+"app/controllers/ccms/reporting/owing_controller.rb" -- 16 warnings:
+[Utility Function] colon2colon2constCcmsReportingOwingController#child_colour doesn't depend on instance state
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls @from.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls @to.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls AttendanceSession.connection more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls CcmsPayment.connection more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls Charge.connection more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls Time.zone more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls child.enrolment_end more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls child.id more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls day_before_from.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls monday_of_from_week.to_formatted_s(db) more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls params[group] more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls params[group].==(family) more than once
+[Duplication] colon2colon2constCcmsReportingOwingController#show calls start_date.to_formatted_s(db) more than once
+[Long Method] colon2colon2constCcmsReportingOwingController#show has approx 53 statements
+[Nested Iterators] colon2colon2constCcmsReportingOwingController#show has nested iterators
+
+"app/controllers/ccms/reporting/payments_controller.rb" -- 7 warnings:
+[Duplication] colon2colon2constCcmsReportingPaymentsController#show calls @totals[payment.payment_type] more than once
+[Duplication] colon2colon2constCcmsReportingPaymentsController#show calls params[group] more than once
+[Duplication] colon2colon2constCcmsReportingPaymentsController#show calls params[group].==(type) more than once
+[Duplication] colon2colon2constCcmsReportingPaymentsController#show calls payment.amount more than once
+[Duplication] colon2colon2constCcmsReportingPaymentsController#show calls payment.payment_type more than once
+[Long Method] colon2colon2constCcmsReportingPaymentsController#show has approx 14 statements
+[Nested Iterators] colon2colon2constCcmsReportingPaymentsController#show has nested iterators
+
+"app/controllers/ccms/reporting/receipts_controller.rb" -- 4 warnings:
+[Duplication] colon2colon2constCcmsReportingReceiptsController#show calls params[from] more than once
+[Duplication] colon2colon2constCcmsReportingReceiptsController#show calls params[to] more than once
+[Long Method] colon2colon2constCcmsReportingReceiptsController#show has approx 9 statements
+[Nested Iterators] colon2colon2constCcmsReportingReceiptsController#show has nested iterators
+
+"app/controllers/ccms/reporting/utilisations_controller.rb" -- 4 warnings:
+[Duplication] colon2colon2constCcmsReportingUtilisationsController#show calls 1..7.collect more than once
+[Duplication] colon2colon2constCcmsReportingUtilisationsController#show calls @children.size more than once
+[Long Method] colon2colon2constCcmsReportingUtilisationsController#show has approx 14 statements
+[Nested Iterators] colon2colon2constCcmsReportingUtilisationsController#show has nested iterators
+
+"app/controllers/ccms/reports_controller.rb" -- 1 warnings:
+[Long Method] colon2constCcmsReportsController#index has approx 7 statements
+
+"app/controllers/ccms/rooms_controller.rb" -- 1 warnings:
+[Long Method] colon2constCcmsRoomsController#destroy has approx 6 statements
+
+"app/controllers/ccms/scheme_website_controller.rb" -- 1 warnings:
+[Duplication] colon2constCcmsSchemeWebsiteController#show calls @scheme.logo more than once
+
+"app/controllers/ccms/schemes_controller.rb" -- 4 warnings:
+[Duplication] colon2constCcmsSchemesController#update calls format.html more than once
+[Duplication] colon2constCcmsSchemesController#update calls format.xml more than once
+[Long Method] colon2constCcmsSchemesController#update has approx 7 statements
+[Nested Iterators] colon2constCcmsSchemesController#update has nested iterators
+
+"app/controllers/ccms/service_details_controller.rb" -- 6 warnings:
+[Duplication] colon2constCcmsServiceDetailsController#create calls values[amount] more than once
+[Duplication] colon2constCcmsServiceDetailsController#create calls values[description] more than once
+[Long Method] colon2constCcmsServiceDetailsController#create has approx 25 statements
+[Duplication] colon2constCcmsServiceDetailsController#destroy_schedule_references_to_rate calls day.+(_fee_id) more than once
+[Nested Iterators] colon2constCcmsServiceDetailsController#destroy_schedule_references_to_rate has nested iterators
+[Duplication] colon2constCcmsServiceDetailsController#website calls @centre.logo more than once
+
+"app/controllers/ccms/sign_in_sheet_controller.rb" -- 22 warnings:
+[Duplication] colon2constCcmsSignInSheetController#add_day_children calls child.id more than once
+[Duplication] colon2constCcmsSignInSheetController#construct_allergies_list calls child.registration_form more than once
+[Duplication] colon2constCcmsSignInSheetController#construct_allergies_list calls child.registration_form[92] more than once
+[Duplication] colon2constCcmsSignInSheetController#construct_birthdays calls c.child_dob more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls child.schedule_on(@day) more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls child.schedule_on(@day).scheduled_for_day?(@day_name) more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls current_service.current_children more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls current_service.current_children.select more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls pages.<<(render_to_string([:hash, [:lit, :action], [:str, "show.html.erb"]])) more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[day] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[month] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[room_id] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[room_id].==() more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[room_id].==(az) more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[show_times] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[to_day] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[to_month] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[to_year] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls params[year] more than once
+[Duplication] colon2constCcmsSignInSheetController#show calls room.name more than once
+[Long Method] colon2constCcmsSignInSheetController#show has approx 43 statements
+[Nested Iterators] colon2constCcmsSignInSheetController#show has nested iterators
+
+"app/controllers/ccms/staff_logins_controller.rb" -- 2 warnings:
+[Long Method] colon2constCcmsStaffLoginsController#create has approx 7 statements
+[Duplication] colon2constCcmsStaffLoginsController#index calls current_service.director more than once
+
+"app/controllers/ccms/vacancies_controller.rb" -- 6 warnings:
+[Duplication] colon2constCcmsVacanciesController#index calls params[day] more than once
+[Duplication] colon2constCcmsVacanciesController#index calls params[month] more than once
+[Duplication] colon2constCcmsVacanciesController#index calls params[year] more than once
+[Long Method] colon2constCcmsVacanciesController#index has approx 17 statements
+[Duplication] colon2constCcmsVacanciesController#show calls Time.current more than once
+[Duplication] colon2constCcmsVacanciesController#show calls Time.current.to_date more than once
+
+"app/controllers/monitor/calls_controller.rb" -- 6 warnings:
+[Duplication] colon2constMonitorCallsController#create calls params[group_id] more than once
+[Long Method] colon2constMonitorCallsController#create has approx 6 statements
+[Duplication] colon2constMonitorCallsController#index calls call.id more than once
+[Duplication] colon2constMonitorCallsController#index calls cookies[call_ids] more than once
+[Long Method] colon2constMonitorCallsController#index has approx 11 statements
+[Feature Envy] colon2constMonitorCallsController#index refers to ids more than self
+
+"app/controllers/monitor/clients_controller.rb" -- 14 warnings:
+[Duplication] colon2constMonitorClientsController#create calls params[address] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[director_password] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[email] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[fax] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[hwt] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[name] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[phone] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[postcode] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[state] more than once
+[Duplication] colon2constMonitorClientsController#create calls params[suburb] more than once
+[Long Method] colon2constMonitorClientsController#create has approx 59 statements
+[Uncommunicative Name] colon2constMonitorClientsController#create uses the local variable name 'f'
+[Duplication] colon2constMonitorClientsController#redirect calls client.centres more than once
+[Duplication] colon2constMonitorClientsController#redirect calls client.centres.first more than once
+
+"app/controllers/monitor/demos_controller.rb" -- 3 warnings:
+[Nested Iterators] colon2constMonitorDemosController#convert has nested iterators
+[Duplication] colon2constMonitorDemosController#redirect calls client.centres more than once
+[Duplication] colon2constMonitorDemosController#redirect calls client.centres.first more than once
+
+"app/controllers/monitor/quarantine_controller.rb" -- 8 warnings:
+[Duplication] colon2constMonitorQuarantineController#index calls @requests.each more than once
+[Duplication] colon2constMonitorQuarantineController#index calls params[method] more than once
+[Duplication] colon2constMonitorQuarantineController#index calls params[request_type] more than once
+[Duplication] colon2constMonitorQuarantineController#index calls params[service_id] more than once
+[Long Method] colon2constMonitorQuarantineController#index has approx 13 statements
+[Duplication] colon2constMonitorQuarantineController#redirect calls service.centre more than once
+[Duplication] colon2constMonitorQuarantineController#wiredump calls @request.wiredump more than once
+[Long Method] colon2constMonitorQuarantineController#wiredump has approx 6 statements
+
+"app/controllers/monitor/queue_controller.rb" -- 2 warnings:
+[Uncommunicative Name] colon2constMonitorQueueController#create uses the local variable name 's'
+[Duplication] colon2constMonitorQueueController#new calls s.id more than once
+
+"app/controllers/monitor/services_controller.rb" -- 10 warnings:
+[Duplication] colon2constMonitorServicesController#attendances calls service.centre more than once
+[Duplication] colon2constMonitorServicesController#attendances calls service.centre.client more than once
+[Long Method] colon2constMonitorServicesController#create has approx 9 statements
+[Uncommunicative Name] colon2constMonitorServicesController#create uses the local variable name 'f'
+[Duplication] colon2constMonitorServicesController#enrolments calls service.centre more than once
+[Duplication] colon2constMonitorServicesController#enrolments calls service.centre.client more than once
+[Duplication] colon2constMonitorServicesController#messages calls service.centre more than once
+[Duplication] colon2constMonitorServicesController#messages calls service.centre.client more than once
+[Duplication] colon2constMonitorServicesController#payments calls service.centre more than once
+[Duplication] colon2constMonitorServicesController#payments calls service.centre.client more than once
+
+"app/controllers/monitor/stats_controller.rb" -- 2 warnings:
+[Long Method] colon2constMonitorStatsController#show has approx 10 statements
+[Feature Envy] colon2constMonitorStatsController#show refers to sr more than self
+
+"app/controllers/parents/fees_controller.rb" -- 8 warnings:
+[Duplication] colon2constParentsFeesController#date_for_record calls r.ccms_attendance more than once
+[Duplication] colon2constParentsFeesController#date_for_record calls r.in_one more than once
+[Utility Function] colon2constParentsFeesController#date_for_record doesn't depend on instance state
+[Feature Envy] colon2constParentsFeesController#date_for_record refers to r more than self
+[Uncommunicative Name] colon2constParentsFeesController#date_for_record uses the parameter name 'r'
+[Duplication] colon2constParentsFeesController#show calls attendances.collect more than once
+[Long Method] colon2constParentsFeesController#show has approx 17 statements
+[Nested Iterators] colon2constParentsFeesController#show has nested iterators
+
+"app/controllers/registrations_controller.rb" -- 22 warnings:
+[Duplication] RegistrationsController#create_registration calls @child.child_dob more than once
+[Duplication] RegistrationsController#create_registration calls @child.child_dob.<(Date.civil(1900, 1, 1)) more than once
+[Duplication] RegistrationsController#create_registration calls @child.parent_dob more than once
+[Duplication] RegistrationsController#create_registration calls @child.parent_dob.<(Date.civil(1900, 1, 1)) more than once
+[Duplication] RegistrationsController#create_registration calls Date.civil(1900, 1, 1) more than once
+[Duplication] RegistrationsController#create_registration calls Time.current more than once
+[Duplication] RegistrationsController#create_registration calls Time.current.to_date more than once
+[Duplication] RegistrationsController#create_registration calls Time.current.to_date.advance([:hash, [:lit, :years], [:lit, -20]]) more than once
+[Duplication] RegistrationsController#create_registration calls Time.current.to_date.advance([:hash, [:lit, :years], [:lit, -2]]) more than once
+[Duplication] RegistrationsController#create_registration calls get_centre_from_domain.services more than once
+[Duplication] RegistrationsController#create_registration calls get_centre_from_domain.services[0] more than once
+[Duplication] RegistrationsController#create_registration calls params[child] more than once
+[Duplication] RegistrationsController#create_registration calls params[details] more than once
+[Duplication] RegistrationsController#create_registration calls params[q] more than once
+[Duplication] RegistrationsController#create_registration calls params[q][18] more than once
+[Duplication] RegistrationsController#create_registration calls params[q][7] more than once
+[Long Method] RegistrationsController#create_registration has approx 31 statements
+[Duplication] RegistrationsController#send_thankyou_email calls child.registration_form more than once
+[Duplication] RegistrationsController#send_thankyou_email calls child.registration_form[25] more than once
+[Duplication] RegistrationsController#send_thankyou_email calls child.registration_form[48] more than once
+[Duplication] RegistrationsController#send_thankyou_email calls child.registration_form[parent_1_email] more than once
+[Feature Envy] RegistrationsController#send_thankyou_email refers to child more than self
+
+"app/controllers/sessions_controller.rb" -- 7 warnings:
+[Duplication] SessionsController#create calls params[login] more than once
+[Long Method] SessionsController#create has approx 10 statements
+[Duplication] SessionsController#default_url calls Time.current more than once
+[Duplication] SessionsController#default_url calls user.centre more than once
+[Duplication] SessionsController#default_url calls user.client more than once
+[Long Method] SessionsController#default_url has approx 6 statements
+[Feature Envy] SessionsController#default_url refers to user more than self
+
+"app/controllers/signup_controller.rb" -- 35 warnings:
+[Duplication] SignupController#add_error calls flash.now more than once
+[Duplication] SignupController#create calls director.login more than once
+[Duplication] SignupController#create calls director.password more than once
+[Duplication] SignupController#create calls domain.name more than once
+[Duplication] SignupController#create calls flash.now more than once
+[Duplication] SignupController#create calls params[email] more than once
+[Duplication] SignupController#create calls params[group] more than once
+[Duplication] SignupController#create calls params[own_children] more than once
+[Duplication] SignupController#create calls params[own_children].==(yes) more than once
+[Duplication] SignupController#create calls params[postcode] more than once
+[Duplication] SignupController#create calls params[transition_date] more than once
+[Duplication] SignupController#create calls service.id more than once
+[Long Method] SignupController#create has approx 42 statements
+[Duplication] SignupController#create_demo_content calls c.save more than once
+[Duplication] SignupController#create_demo_content calls p.save more than once
+[Duplication] SignupController#create_demo_content calls values.each more than once
+[Long Method] SignupController#create_demo_content has approx 34 statements
+[Nested Iterators] SignupController#create_demo_content has nested iterators
+[Utility Function] SignupController#find_time_zone_from_postcode doesn't depend on instance state
+[Duplication] SignupController#generate_centre calls Time.current more than once
+[Duplication] SignupController#generate_centre calls Time.current.to_date more than once
+[Duplication] SignupController#generate_centre calls params[centre_name] more than once
+[Long Method] SignupController#generate_centre has approx 15 statements
+[Long Method] SignupController#generate_client has approx 15 statements
+[Duplication] SignupController#generate_director calls params[name] more than once
+[Long Method] SignupController#generate_director has approx 11 statements
+[Long Method] SignupController#generate_domain_name has approx 10 statements
+[Long Method] SignupController#generate_scheme has approx 7 statements
+[Duplication] SignupController#generate_schemer calls params[name] more than once
+[Long Method] SignupController#generate_schemer has approx 10 statements
+[Uncommunicative Name] SignupController#generate_schemer uses the local variable name 's'
+[Long Method] SignupController#generate_service has approx 10 statements
+[Duplication] SignupController#parse_date calls date.split(/) more than once
+[Utility Function] SignupController#parse_date doesn't depend on instance state
+[Feature Envy] SignupController#parse_date refers to date more than self
+
+"app/controllers/upgrade_controller.rb" -- 1 warnings:
+[Long Method] UpgradeController#show has approx 13 statements
+
+"app/controllers/website_controller.rb" -- 1 warnings:
+[Long Method] WebsiteController#create has approx 6 statements
+
+"app/helpers/application_helper.rb" -- 37 warnings:
+[Duplication] #box calls options[extra] more than once
+[Long Method] #box has approx 6 statements
+[Feature Envy] #box refers to options more than self
+[Long Method] #child_attendance_status has approx 7 statements
+[Duplication] #draw_adminstration_menu calls params[centre_id] more than once
+[Duplication] #draw_adminstration_menu calls params[client_id] more than once
+[Duplication] #draw_adminstration_menu calls params[service_id] more than once
+[Duplication] #draw_navigation_menu calls params[centre_id] more than once
+[Duplication] #draw_navigation_menu calls params[client_id] more than once
+[Duplication] #draw_navigation_menu calls params[service_id] more than once
+[Long Yield List] #draw_navigation_menu yields 4 parameters
+[Duplication] #end_date_in_attendance calls child_session.session_end more than once
+[Utility Function] #end_date_in_attendance doesn't depend on instance state
+[Feature Envy] #end_date_in_attendance refers to child_session more than self
+[Duplication] #end_time_in_attendance calls child_session.session_end more than once
+[Utility Function] #formated_time doesn't depend on instance state
+[Feature Envy] #formated_time refers to datetime more than self
+[Long Parameter List] #model_date_select has 8 parameters
+[Long Method] #model_date_select has approx 6 statements
+[Feature Envy] #model_date_select refers to date more than self
+[Feature Envy] #model_date_select refers to max_date more than self
+[Feature Envy] #model_date_select refers to min_date more than self
+[Duplication] #route_for calls current_user.is more than once
+[Duplication] #route_for calls current_user.is.==(FDC) more than once
+[Duplication] #route_for calls extras[0] more than once
+[Duplication] #route_for calls extras[1] more than once
+[Duplication] #route_for calls extras[2] more than once
+[Feature Envy] #route_for refers to extras more than self
+[Utility Function] #row doesn't depend on instance state
+[Uncommunicative Name] #row uses the local variable name 'a'
+[Duplication] #start_date_in_attendance calls child_session.session_start more than once
+[Utility Function] #start_date_in_attendance doesn't depend on instance state
+[Feature Envy] #start_date_in_attendance refers to child_session more than self
+[Duplication] #start_time_in_attendance calls child_session.session_start more than once
+[Utility Function] #sub_row doesn't depend on instance state
+[Uncommunicative Name] #sub_row uses the local variable name 'a'
+[Utility Function] #value_or_null doesn't depend on instance state
+
+"app/helpers/ccms/child_tabs/fees_helper.rb" -- 12 warnings:
+[Duplication] #add_charge_script calls charge.child_id more than once
+[Duplication] #add_charge_script calls charge.id more than once
+[Feature Envy] #add_charge_script refers to charge more than self
+[Duplication] #add_payment_script calls payment.amount more than once
+[Duplication] #add_payment_script calls payment.ccms_attendance more than once
+[Duplication] #add_payment_script calls payment.child_id more than once
+[Duplication] #add_payment_script calls payment.description more than once
+[Duplication] #add_payment_script calls payment.id more than once
+[Duplication] #add_payment_script calls payment.line_item_id more than once
+[Duplication] #add_payment_script calls payment.paid more than once
+[Duplication] #add_payment_script calls payment.payment_type more than once
+[Feature Envy] #add_payment_script refers to payment more than self
+
+"app/helpers/ccms/child_tabs/registration_forms_helper.rb" -- 7 warnings:
+[Duplication] #draw_email_field calls n.to_s more than once
+[Utility Function] #draw_email_field doesn't depend on instance state
+[Feature Envy] #draw_email_field refers to n more than self
+[Uncommunicative Name] #draw_email_field uses the parameter name 'n'
+[Duplication] #draw_extra_fields_for_email calls @details["other_service_email_#{n}"] more than once
+[Long Method] #draw_extra_fields_for_email has approx 8 statements
+[Uncommunicative Name] #draw_extra_fields_for_email uses the local variable name 'n'
+
+"app/helpers/ccms/children_helper.rb" -- 13 warnings:
+[Long Parameter List] #calendar has 5 parameters
+[Utility Function] #child_colour doesn't depend on instance state
+[Duplication] #child_first_name_text calls child.child_dob more than once
+[Duplication] #child_first_name_text calls child.child_first_name more than once
+[Utility Function] #child_first_name_text doesn't depend on instance state
+[Feature Envy] #child_first_name_text refers to child more than self
+[Duplication] #child_last_name_text calls child.child_last_name more than once
+[Duplication] #child_last_name_text calls child.child_last_name.upcase more than once
+[Duplication] #child_last_name_text calls child.parent_last_name more than once
+[Feature Envy] #child_last_name_text refers to child more than self
+[Utility Function] #day_name doesn't depend on instance state
+[Utility Function] #twelve_hr_time doesn't depend on instance state
+[Feature Envy] #twelve_hr_time refers to hr more than self
+
+"app/helpers/ccms/messages_helper.rb" -- 3 warnings:
+[Duplication] #delete_button calls message.id more than once
+[Utility Function] #humanise_enrolment_ids doesn't depend on instance state
+[Feature Envy] #humanise_enrolment_ids refers to message more than self
+
+"app/helpers/ccms/reports_helper.rb" -- 3 warnings:
+[Utility Function] #bold_child_name doesn't depend on instance state
+[Feature Envy] #bold_child_name refers to child more than self
+[Utility Function] #child_colour doesn't depend on instance state
+
+"app/helpers/ccms/rooms_helper.rb" -- 3 warnings:
+[Duplication] #room_select calls room.id more than once
+[Feature Envy] #room_select refers to child more than self
+[Feature Envy] #room_select refers to select more than self
+
+"app/helpers/monitor/quarantine_helper.rb" -- 6 warnings:
+[Utility Function] #monitor_url doesn't depend on instance state
+[Duplication] #related_associate calls record.related more than once
+[Duplication] #related_associate calls record.related.child more than once
+[Utility Function] #related_associate doesn't depend on instance state
+[Feature Envy] #related_associate refers to record more than self
+[Utility Function] #request_type_name doesn't depend on instance state
+
+"app/helpers/registrations_helper.rb" -- 4 warnings:
+[Duplication] #input_for_question calls q.id more than once
+[Utility Function] #input_for_question doesn't depend on instance state
+[Feature Envy] #input_for_question refers to q more than self
+[Uncommunicative Name] #input_for_question uses the parameter name 'q'
+
+"app/helpers/users_helper.rb" -- 2 warnings:
+[Long Method] #link_to_user has approx 6 statements
+[Control Couple] #link_to_user is controlled by argument user
+
+"app/models/attendance_session.rb" -- 7 warnings:
+[Duplication] AttendanceSession#in_one_time calls [:self].in_one more than once
+[Duplication] AttendanceSession#out_one_time calls [:self].out_one more than once
+[Duplication] AttendanceSession#session_date calls [:self].session_start more than once
+[Duplication] AttendanceSession#session_end_date calls [:self].session_end more than once
+[Duplication] AttendanceSession#session_end_time calls [:self].session_end more than once
+[Duplication] AttendanceSession#session_start_date calls [:self].session_start more than once
+[Duplication] AttendanceSession#session_start_time calls [:self].session_start more than once
+
+"app/models/billing.rb" -- 2 warnings:
+[Duplication] Billing#make_payment calls [:self].response more than once
+[Long Method] Billing#make_payment has approx 11 statements
+
+"app/models/ccb_eligibility.rb" -- 3 warnings:
+[Duplication] CcbEligibility#formatted_eligible_hours calls [:self].eligible_hours more than once
+[Long Parameter List] CcbEligibility#initialize has 7 parameters
+[Long Parameter List] CcbEligibility#match_or_construct_new_record has 6 parameters
+
+"app/models/ccms_attendance.rb" -- 17 warnings:
+[Duplication] CcmsAttendance#cancel_and_clone calls [:self].child more than once
+[Duplication] CcmsAttendance#cancel_and_clone calls [:self].week_ending more than once
+[Long Method] CcmsAttendance#cancel_and_clone has approx 18 statements
+[Duplication] CcmsAttendance#session_for_date calls Time.zone more than once
+[Duplication] CcmsAttendance#session_for_date calls date.day more than once
+[Duplication] CcmsAttendance#session_for_date calls date.month more than once
+[Duplication] CcmsAttendance#session_for_date calls date.year more than once
+[Long Method] CcmsAttendance#session_for_date has approx 8 statements
+[Feature Envy] CcmsAttendance#session_for_date refers to date more than self
+[Duplication] CcmsAttendance#sessions_for_date calls Time.zone more than once
+[Duplication] CcmsAttendance#sessions_for_date calls date.day more than once
+[Duplication] CcmsAttendance#sessions_for_date calls date.month more than once
+[Duplication] CcmsAttendance#sessions_for_date calls date.year more than once
+[Feature Envy] CcmsAttendance#sessions_for_date refers to date more than self
+[Duplication] CcmsAttendance#submitted? calls [:self].status more than once
+[Duplication] CcmsAttendance#valid_for_ccms? calls Time.current more than once
+[Duplication] CcmsAttendance#valid_for_ccms? calls [:self].attendance_sessions more than once
+
+"app/models/child.rb" -- 55 warnings:
+[Duplication] Child#active? calls [:self].status more than once
+[Long Method] Child#after_create has approx 9 statements
+[Duplication] Child#after_destroy calls [:self].family more than once
+[Long Method] Child#age has approx 6 statements
+[Feature Envy] Child#age refers to diff more than self
+[Duplication] Child#assign_to_family calls [:self].create_family more than once
+[Duplication] Child#assign_to_family calls [:self].family more than once
+[Duplication] Child#assign_to_family calls [:self].parent_crn more than once
+[Duplication] Child#assign_to_family calls [:self].parent_crn? more than once
+[Duplication] Child#assign_to_family calls [:self].service more than once
+[Duplication] Child#assign_to_family calls [:self].service.children more than once
+[Duplication] Child#assign_to_family calls [:self].service.children.first([:hash, [:lit, :conditions], [:hash, [:lit, :parent_crn], [:call, [:self], :parent_crn], [:lit, :enrolled], [:true]]]) more than once
+[Duplication] Child#assign_to_family calls [:self].siblings([:false]) more than once
+[Duplication] Child#assign_to_family calls [:self].siblings([:false]).-([:self]) more than once
+[Duplication] Child#assign_to_family calls [:self].siblings([:false]).-([:self]).first more than once
+[Duplication] Child#assign_to_family calls [:self].siblings([:false]).-([:self]).first.parent_crn more than once
+[Duplication] Child#assign_to_family calls [:self].siblings([:false]).-([:self]).first.parent_crn.==([:self].parent_crn) more than once
+[Duplication] Child#assign_to_family calls sibling.family more than once
+[Long Method] Child#assign_to_family has approx 9 statements
+[Feature Envy] Child#assign_to_family refers to sibling more than self
+[Duplication] Child#attendance_record_for_date calls @attendances_cache[date] more than once
+[Long Method] Child#attendance_record_for_date has approx 8 statements
+[Control Couple] Child#attendance_record_for_date is controlled by argument create_if_doesnt_exist
+[Duplication] Child#before_save calls [:self].family more than once
+[Duplication] Child#before_save calls [:self].new_record? more than once
+[Duplication] Child#bless_most_recent_attendance_record_for_date calls [:self].ccms_attendances more than once
+[Long Method] Child#bless_most_recent_attendance_record_for_date has approx 9 statements
+[Duplication] Child#ccb_eligibility_on calls c.week_ending more than once
+[Long Method] Child#create_family has approx 8 statements
+[Duplication] Child#create_parent_login calls [:self].family more than once
+[Duplication] Child#create_parent_login calls [:self].family.parents more than once
+[Duplication] Child#create_parent_login calls [:self].parent_name more than once
+[Duplication] Child#create_parent_login calls [:self].registration_form more than once
+[Duplication] Child#create_parent_login calls [:self].registration_form[200] more than once
+[Duplication] Child#create_parent_login calls [:self].registration_form[25] more than once
+[Duplication] Child#create_parent_login calls [:self].registration_form[48] more than once
+[Duplication] Child#create_parent_login calls [:self].scheme more than once
+[Duplication] Child#create_parent_login calls [:self].scheme.nil? more than once
+[Duplication] Child#create_parent_login calls [:self].service more than once
+[Duplication] Child#create_parent_login calls [:self].service.centre more than once
+[Duplication] Child#create_parent_login calls [:self].service.nil? more than once
+[Duplication] Child#create_parent_login calls parent.login more than once
+[Long Method] Child#create_parent_login has approx 32 statements
+[Control Couple] Child#create_parent_login is controlled by argument notify_parent
+[Duplication] Child#currently_enrolled? calls [:self].enrolment_end more than once
+[Duplication] Child#estimated_ccb_percentage calls siblings.size more than once
+[Duplication] Child#schedule_on calls @schedule_cache[sunday_of_date] more than once
+[Duplication] Child#schedule_on calls s.week_ending more than once
+[Long Method] Child#schedule_on has approx 7 statements
+[Feature Envy] Child#send_login_email refers to parent more than self
+[Duplication] Child#siblings calls [:self].family more than once
+[Duplication] Child#siblings calls [:self].family.children more than once
+[Control Couple] Child#siblings is controlled by argument enrolled_only
+[Utility Function] Child#three_child_percentage doesn't depend on instance state
+[Utility Function] Child#two_child_percentage doesn't depend on instance state
+
+"app/models/family.rb" -- 1 warnings:
+[Duplication] Family#claimed_multiple_child_count_or_default calls c.enrolment_end more than once
+
+"app/models/icon.rb" -- 1 warnings:
+[Control Couple] Icon#full_filename is controlled by argument thumbnail
+
+"app/models/multi_session_schedule.rb" -- 11 warnings:
+[Duplication] MultiSessionSchedule#cleanup! calls day.+(_in_one) more than once
+[Duplication] MultiSessionSchedule#cleanup! calls day.+(_in_two) more than once
+[Duplication] MultiSessionSchedule#cleanup! calls day.+(_out_one) more than once
+[Duplication] MultiSessionSchedule#cleanup! calls day.+(_out_two) more than once
+[Duplication] MultiSessionSchedule#cleanup! calls params[day.+(_in_one)] more than once
+[Duplication] MultiSessionSchedule#cleanup! calls params[day.+(_in_two)] more than once
+[Duplication] MultiSessionSchedule#cleanup! calls params[day.+(_out_one)] more than once
+[Duplication] MultiSessionSchedule#cleanup! calls params[day.+(_out_two)] more than once
+[Long Method] MultiSessionSchedule#cleanup! has approx 7 statements
+[Feature Envy] MultiSessionSchedule#cleanup! refers to params more than self
+[Feature Envy] MultiSessionSchedule#scheduled_for_day? refers to day more than self
+
+"app/models/notifications.rb" -- 5 warnings:
+[Long Parameter List] Notifications#demo has 4 parameters
+[Long Parameter List] Notifications#login has 5 parameters
+[Duplication] Notifications#signup calls child.service more than once
+[Duplication] Notifications#signup calls child.service.centre more than once
+[Duplication] Notifications#signup calls child.service.centre.name more than once
+
+"app/models/schedule.rb" -- 8 warnings:
+[Duplication] Schedule#cleanup! calls day.+(_in) more than once
+[Duplication] Schedule#cleanup! calls day.+(_out) more than once
+[Duplication] Schedule#cleanup! calls params[day.+(_in)] more than once
+[Duplication] Schedule#cleanup! calls params[day.+(_out)] more than once
+[Feature Envy] Schedule#cleanup! refers to params more than self
+[Duplication] Schedule#default_carer_for_day calls day.+(_fee_id) more than once
+[Duplication] Schedule#default_fee_for_day calls day.+(_fee_id) more than once
+[Feature Envy] Schedule#scheduled_for_day? refers to day more than self
+
+"app/models/scheme.rb" -- 2 warnings:
+[Utility Function] Scheme#rate_type doesn't depend on instance state
+[Utility Function] Scheme#service_type doesn't depend on instance state
+
+"app/models/service.rb" -- 7 warnings:
+[Duplication] Service#recache_regular_service_days calls monday, tuesday, wednesday, thursday, friday, saturday, sunday.each more than once
+[Long Method] Service#recache_regular_service_days has approx 18 statements
+[Nested Iterators] Service#recache_regular_service_days has nested iterators
+[Duplication] Service#schedule_on calls s.week_ending more than once
+[Duplication] Service#submit_attendances_for_week_ending calls record.create_attendance more than once
+[Duplication] Service#submit_attendances_for_week_ending calls record.valid_for_ccms?(true) more than once
+[Long Method] Service#submit_attendances_for_week_ending has approx 6 statements
+
+"app/models/soap_request.rb" -- 7 warnings:
+[Duplication] SoapRequest#complete calls response.lastPage more than once
+[Long Method] SoapRequest#complete has approx 7 statements
+[Feature Envy] SoapRequest#complete refers to response more than self
+[Duplication] SoapRequest#quarantine calls [:self].save more than once
+[Long Method] SoapRequest#quarantine has approx 10 statements
+[Control Couple] SoapRequest#quarantine is controlled by argument response
+[Feature Envy] SoapRequest#quarantine refers to response more than self
+
+"app/models/upload.rb" -- 1 warnings:
+[Control Couple] Upload#full_filename is controlled by argument thumbnail
+
+"app/models/vacancy.rb" -- 3 warnings:
+[Duplication] Vacancy#cleanup_values! calls day.+(_places) more than once
+[Duplication] Vacancy#cleanup_values! calls monday, tuesday, wednesday, thursday, friday, saturday, sunday.each more than once
+[Duplication] Vacancy#cleanup_values! calls read_attribute(day.+(_places)).==(0) more than once
+
+"app/models/website_image.rb" -- 1 warnings:
+[Control Couple] WebsiteImage#full_filename is controlled by argument thumbnail
+

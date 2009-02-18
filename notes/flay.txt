@@ -1,0 +1,67 @@
+h1. About
+
+Flay is a duplication checker built specifically for Ruby.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code before doing the duplication check.  That means it can be clever about comparing different forms of syntax.  For example, Flay understands that do...end is the same as {...}.  It also understands basic structure of Ruby code.
+
+h1. Command
+
+find lib app -name "*.rb" | xargs flay > ../ruby_code_quality/sample_analysis/flay.txt
+
+h1. Interface
+
+The command is run by calling 'flay' and passing a list of files to process.  Output from the command goes to standard output in the following form:
+
+<error number>) <Similar|IDENTICAL> code found in <symbol> (mass<multiplier if identical> = <size>)
+  <relative filename>:<line number>
+  <relative filename>:<line number>
+  ...
+
+For example:
+
+2) IDENTICAL code found in :defn (mass*3 = 252)
+  app/models/icon.rb:10
+  app/models/upload.rb:8
+  app/models/website_image.rb:15
+
+h1. Documentation
+
+The website for Flay is at http://ruby.sadi.st/Flay.html.  It describes a sample command, but no further syntax.  There is no command line help for Flay.
+
+h1. Code
+
+The code for flay is all in a single file with about 300 lines of code.  It might be a little clearer if the multiple classes were split out to separate files, but that's mostly a personal style issue.  It was a surprisingly small code base for how powerful it is.  A couple of the internal methods that do the grunt work are reasonably complex (process_fuzzy_similarities and n_way_diff for example).  It does quite cleanly separate the processing of the data from the reporting of the data though, which would make it easy to add on a different interface without needing to parse the output.
+
+h1. General Comments
+
+Flay is a really simple tool with useful output.  It is very easy to run, and the output was easy to decipher even though no documentation exists to help guide you through it.  Some simple command line help when it is run with no parameters would be a great improvement.  It has no rake task support out of the box.  Failing the build when duplication above some threshold appears seems like an obvious addition.  There is no Rails plugin out of the box either, which might provide a rake task that knew to look inside 'app' and 'lib', but to ignore 'vendor' for code.
+
+h1. Comparison to Simian
+
+Simian is significantly faster at parsing when compared to flay, but doesn't understand the raw Ruby syntax quite as well.  That should indicate that Flay will give more relevant results whilst Simian can be used for people with large code bases that want faster feedback.  In practice though, it seems that the tools both find results that are a bit different from one another.  Simian can find relevant results that Flay doesn't.  Also, the nature of Ruby applications is such that the code bases are usually relatively small (when compared with large Java apps which is Simian's background), so the speed advantage of Simian is inconsequential.
+
+I'd likely run both at this stage.  The overhead is low, and it seems safer.
+
+h1. The 'Eat Your Own Dog Food' check
+
+find /Library/Ruby/Gems/1.8/gems/flay-1.1.0 -name "*.rb" | xargs flay
+
+Processing /Library/Ruby/Gems/1.8/gems/flay-1.1.0/lib/flay.rb
+Processing /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb
+
+1) IDENTICAL code found in :call (mass*2 = 108)
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:24
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:60
+
+2) IDENTICAL code found in :lasgn (mass*2 = 72)
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:105
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:136
+
+3) Similar code found in :call (mass = 34)
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:213
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:214
+
+4) Similar code found in :call (mass = 34)
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:216
+  /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:217
+
+
+Some output comes up from test code, but none in the production code from the tool itself.  Pretty good!
