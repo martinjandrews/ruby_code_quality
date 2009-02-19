@@ -1,0 +1,1 @@
+find lib app -name "*.rb" | xargs roodi > ../ruby_code_quality/sample_analysis/roodi.txt

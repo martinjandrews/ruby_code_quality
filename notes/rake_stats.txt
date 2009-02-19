@@ -1,0 +1,1 @@
+rake stats > ../ruby_code_quality/sample_analysis/rake_stats.txt
