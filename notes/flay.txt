@@ -1,6 +1,6 @@
 h1. About
 
-Flay is a duplication checker built specifically for Ruby.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code before doing the duplication check.  That means it can be clever about comparing different forms of syntax.  For example, Flay understands that do...end is the same as {...}.  It also understands basic structure of Ruby code.
+Flay is a duplication checker built specifically for Ruby by Ryan Davis.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code before doing the duplication check.  That means it can be clever about comparing different forms of syntax.  For example, Flay understands that do...end is the same as {...}.  It also understands basic structure of Ruby code.
 
 h1. Command
 
@@ -42,7 +42,7 @@ I'd likely run both at this stage.  The overhead is low, and it seems safer.
 
 h1. The 'Eat Your Own Dog Food' check
 
-find /Library/Ruby/Gems/1.8/gems/flay-1.1.0 -name "*.rb" | xargs flay
+$ find /Library/Ruby/Gems/1.8/gems/flay-1.1.0 -name "*.rb" | xargs flay
 
 Processing /Library/Ruby/Gems/1.8/gems/flay-1.1.0/lib/flay.rb
 Processing /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb
