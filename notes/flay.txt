@@ -4,7 +4,7 @@ Flay is a duplication checker built specifically for Ruby by Ryan Davis.  It use
 
 h1. Command
 
-find lib app -name "*.rb" | xargs flay > ../ruby_code_quality/sample_analysis/flay.txt
+find lib app -name "*.rb" | xargs flay
 
 h1. Interface
 

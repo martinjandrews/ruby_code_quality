@@ -4,7 +4,7 @@ Flay is a tool written by Ryan Davis that calculates a complexity score for meth
 
 h1. Command
 
-find lib app -name "*.rb" | xargs flog > ../ruby_code_quality/sample_analysis/flog.txt
+find lib app -name "*.rb" | xargs flog
 
 h1. Interface
 
