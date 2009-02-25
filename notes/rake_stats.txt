@@ -1,1 +1,60 @@
-rake stats > ../ruby_code_quality/sample_analysis/rake_stats.txt
+h1. About
+
+Rake stats is a command that comes with Rails.  When you create a rails app, you will have 'stats' as one of the pre-canned rake tasks you can run.  It gives you a simple text based report summarising some simple statistics about your rails application.
+
+h1. Command
+
+rake stats
+
+h1. Interface
+
+The only way this tool is intended to be run is by running 'rake stats' in the root of your rails application.  It prints out a text based report to standard output.  For example:
+
+$ rake stats
+
+(in /Users/marty/Data/sample)
++----------------------+-------+-------+---------+---------+-----+-------+
+| Name                 | Lines |   LOC | Classes | Methods | M/C | LOC/M |
++----------------------+-------+-------+---------+---------+-----+-------+
+| Controllers          |  3914 |  2840 |      58 |     195 |   3 |    12 |
+| Helpers              |   625 |   454 |       2 |      48 |  24 |     7 |
+| Models               |  1887 |  1171 |      42 |     155 |   3 |     5 |
+| Libraries            |   366 |   208 |       4 |      45 |  11 |     2 |
+| Model specs          |   100 |    77 |       1 |       0 |   0 |     0 |
++----------------------+-------+-------+---------+---------+-----+-------+
+| Total                |  6892 |  4750 |     107 |     443 |   4 |     8 |
++----------------------+-------+-------+---------+---------+-----+-------+
+  Code LOC: 4673     Test LOC: 77     Code to Test Ratio: 1:0.0
+
+
+h1. Documentation
+
+Running 'rake -T stats' gives the following output:
+
+$ rake -T stats
+
+(in /Users/marty/Data/sample)
+rake stats  # Report code statistics (KLOCs, etc) from the application
+
+??? Is any further documentation provided?  In tha Rails book?  Online? ???
+
+h1. Code
+
+The code for stats is actually quite simple.  It is a single class, but takes an Array of directories as a parameter, so you could run it over any Ruby code base you liked and have a customised report.  The Rails rake task is setup to know about the standard Rails directory structure.  It is slightly primitive in it's counting technique however.  All lines in a file get counted, even if they're blank or contain a comment.
+
+h1. General Comments
+
+The code for the stats task is some of the simplest I've seen from the tools.  One thing I didn't like was that it has a bit of embedded magic by 'knowing' what sort of directory names contain tests.  However, the rspec plugin happens modifies that list of directories to include rspec defaults as well, so it was pretty easy to do.
+
+As with some of the other tools, I would've liked to have seen the reporting separated from the analysis, and therefore a code based API available to get the statistics.  However, this is one of the simplest tools I've seen, and it's immediately obvious how to extend it to do that.  Adding support for failing a build based on some thresholds (particularly M/C, LOC/M or Code to Test Ratio) seems like a useful extension.
+
+h1. The 'Eat Your Own Dog Food' check
+
++----------------------+-------+-------+---------+---------+-----+-------+
+| Name                 | Lines |   LOC | Classes | Methods | M/C | LOC/M |
++----------------------+-------+-------+---------+---------+-----+-------+
+| Code Statistics      |   107 |    85 |       1 |      11 |  11 |     5 |
++----------------------+-------+-------+---------+---------+-----+-------+
+  Code LOC: 85     Test LOC: 0     Code to Test Ratio: 1:0.0
+
+A pretty simple tool as shown by this output.  One class, 11 methods of about 5 lines each for a total of 85 LOC.  A good result.
