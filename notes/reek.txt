@@ -1,1 +1,56 @@
-find lib app -name "*.rb" | xargs reek > ../ruby_code_quality/sample_analysis/reek.txt
+h1. About
+
+Reek is a tool written by Kevin Rutherford that looks for code smells in your Ruby application.  It uses ParseTree under the covers to break down your code into Sexp nodes, then looks for common patterns the represent code smells.
+
+h1. Command
+
+find lib app -name "*.rb" | xargs reek
+
+h1. Interface
+
+The command line interface lets you pass in a list of files to analyse.  Here's the summary of the syntax from the tool itself:
+
+$ reek --help
+Usage: reek [options] SOURCES
+
+The SOURCES may be any combination of file paths and Ruby source code.
+
+Options:
+    -h, --help                       Show this message
+    -s, --sort ORDER                 Select sort order for report (smell, context)
+    -v, --version                    Show version
+
+Output from reek appears in the following form by default:
+
+"<filename>" -- <warning count> warnings:
+[<check type>] <context> <message>
+[<check type>] <context> <message>
+...
+
+For example:
+
+"lib/authenticated_system.rb" -- 4 warnings:
+[Nested Iterators] #access_denied has nested iterators
+[Control Couple] #current_user= is controlled by argument new_user
+[Duplication] #login_from_cookie calls cookies[auth_token] more than once
+[Duplication] #login_from_session calls session[user_id] more than once
+
+h1. Documentation
+
+The website for Reek is at http://reek.rubyforge.org.  It describes (TODO: Can't see website from train :) ).
+
+h1. Code
+
+The code base for Reek is very clean and well factored.  The concerns of command line processing, controlling the checking process, the checks themselves and reporting are all well separated and come with tests.  It's easy to see that while file based checking is set up as the default, I could use the API as a programmer to manipulate the tool as well.
+
+h1. General Comments
+
+Reek seems to be the most complete of the tools that I've looked at in the review.  It's the only one that comes with a rake task that will fail when it discovers an error.  That's one of the key factors for these tools becoming more useful.  It's also well designed, documented, and has more features than most of the other tools.
+
+My main feedback for Reek at this stage is that I'd like to be able to turn some checks off if they don't seem to apply well to my code base.
+
+h1. The 'Eat Your Own Dog Food' check
+
+$ find /Library/Ruby/Gems/1.8/gems/reek-0.3.1/ -name "*.rb" | reek
+
+No output.  A perfect result!
