@@ -1,1 +1,16 @@
-find lib app -name "*.rb" | xargs roodi > ../ruby_code_quality/sample_analysis/roodi.txt
+h1. About
+
+h1. Command
+
+find lib app -name "*.rb" | xargs roodi
+
+h1. Interface
+
+h1. Documentation
+
+h1. Code
+
+h1. General Comments
+
+h1. The 'Eat Your Own Dog Food' check
+
