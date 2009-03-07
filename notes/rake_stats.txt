@@ -36,7 +36,7 @@ $ rake -T stats
 (in /Users/marty/Data/sample)
 rake stats  # Report code statistics (KLOCs, etc) from the application
 
-??? Is any further documentation provided?  In tha Rails book?  Online? ???
+??? Is any further documentation provided?  In the Rails book?  Online? ???
 
 h1. Code
 

@@ -37,7 +37,7 @@ For example:
 
 h1. Documentation
 
-The website for Reek is at http://reek.rubyforge.org.  It describes (TODO: Can't see website from train :) ).
+The website for Reek is at http://wiki.github.com/kevinrutherford/reek.  It describes installation, basic usage, configuration and details of all of the code smells that Reek looks for.  The information available on the site is quite detailed.
 
 h1. Code
 
