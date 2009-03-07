@@ -45,7 +45,7 @@ Monitor::ClientsController#create: (120.9)
 
 h1. Documentation
 
-The website for Flay is at http://ruby.sadi.st/Flog.html.  It describes (TODO: Can't see website from plane :) ).  The command line help for Flog lists several useful options for Flog.
+The website for Flay is at http://ruby.sadi.st/Flog.html.  It describes a simple command, plus an example of how the algorithm works.  The command line help for Flog lists several useful options for Flog.
 
 h1. Code
 
