@@ -1,6 +1,6 @@
 h1. About
 
-Flay is a tool written by Ryan Davis that calculates a complexity score for methods in your codebase.  The score is based on a published Assignments, Branches, Conditionals (ABC) metric, but has been customised by Ryan to highlight things that he feels are relevant.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code, then traverses those nodes to count the assignments, branches and conditionals (and a couple of other things) per method in your code.  Those values are plugged into a formula to come up with a flog score for your code.  The flog scores across all methods are summed to give you a total score for your codebase and an average per method.
+Flay is a tool written by Ryan Davis that calculates a complexity score for methods in your codebase.  The score is based on a published Assignments, Branches, Conditionals (ABC) metric, but has been customised by Ryan to highlight things that he feels are relevant.  It uses ParseTree under the covers to create Sexp nodes for Ruby code, then traverses those nodes to count the assignments, branches and conditionals (and a couple of other things) per method in your code.  Those values are plugged into a formula to come up with a flog score for your code.  The flog scores across all methods are summed to give you a total score for your codebase and an average per method.
 
 h1. Command
 

@@ -22,6 +22,27 @@ For example:
   app/models/upload.rb:8
   app/models/website_image.rb:15
 
+
+After contacting Ryan Davis, he also told me that I could run 'flay -v' to get more verbose output.  It uses ruby2ruby to show you the actual code and the differences between them that were found, in addition to the locations which is normally included.
+
+For example:
+
+9) Similar code found in :masgn (mass = 72)
+  A: app/helpers/application_helper.rb:70
+  B: app/helpers/application_helper.rb:71
+  C: app/helpers/application_helper.rb:72
+
+A: year, month, day = if date.nil? then
+B: max_year, max_month, max_day = if max_date.nil? then
+C: min_year, min_month, min_day = if min_date.nil? then
+     ["null", "null", "null"]
+   else
+A:   [date.year, date.month, date.day]
+B:   [max_date.year, max_date.month, max_date.day]
+C:   [min_date.year, min_date.month, min_date.day]
+   end
+
+
 h1. Documentation
 
 The website for Flay is at http://ruby.sadi.st/Flay.html.  It describes a sample command, but no further syntax.  There is no command line help for Flay.
