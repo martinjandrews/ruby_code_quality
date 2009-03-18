@@ -1,10 +1,10 @@
 h1. About
 
-Flay is a duplication checker built specifically for Ruby by Ryan Davis.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code before doing the duplication check.  That means it can be clever about comparing different forms of syntax.  For example, Flay understands that do...end is the same as {...}.  It also understands basic structure of Ruby code.
+Flay is a structural similarity checker built specifically for Ruby by Ryan Davis.  It uses ruby_parser under the covers to create Sexp nodes for Ruby code before doing the duplication check.  That means it can be clever about comparing different forms of syntax.  For example, Flay understands that do...end is the same as {...}.  It also understands the detailed structure of Ruby code.
 
 h1. Command
 
-find lib app -name "*.rb" | xargs flay
+flay lib app
 
 h1. Interface
 
@@ -21,7 +21,6 @@ For example:
   app/models/icon.rb:10
   app/models/upload.rb:8
   app/models/website_image.rb:15
-
 
 After contacting Ryan Davis, he also told me that I could run 'flay -v' to get more verbose output.  It uses ruby2ruby to show you the actual code and the differences between them that were found, in addition to the locations which is normally included.
 
@@ -45,7 +44,20 @@ C:   [min_date.year, min_date.month, min_date.day]
 
 h1. Documentation
 
-The website for Flay is at http://ruby.sadi.st/Flay.html.  It describes a sample command, but no further syntax.  There is no command line help for Flay.
+The website for Flay is at http://ruby.sadi.st/Flay.html.  It describes a sample command, but no further syntax.  The command line help for Flay look like this:
+
+$ flay -h
+
+flay [options] files_or_dirs
+
+Specific options:
+
+    -h, --help                       Display this help.
+    -f, --fuzzy                      Attempt to do fuzzy similarities. (SLOW)
+    -m, --mass MASS                  Sets mass threshold
+    -v, --verbose                    Verbose. Display N-Way diff for ruby.
+
+Known extensions: rb
 
 h1. Code
 
@@ -53,13 +65,36 @@ The code for flay is all in a single file with about 300 lines of code.  It migh
 
 h1. General Comments
 
-Flay is a really simple tool with useful output.  It is very easy to run, and the output was easy to decipher even though no documentation exists to help guide you through it.  Some simple command line help when it is run with no parameters would be a great improvement.  It has no rake task support out of the box.  Failing the build when duplication above some threshold appears seems like an obvious addition.  There is no Rails plugin out of the box either, which might provide a rake task that knew to look inside 'app' and 'lib', but to ignore 'vendor' for code.
+Flay is a really simple tool with useful output.  It is very easy to run, and the output was easy to decipher even though no documentation exists to help guide you through it.  Some simple command line help when it is run with no parameters would be a great improvement.  After some discussion with Ryan about a rake task, he added one very quickly to the gem.  It gives you support for failing a build if the flay total exceeds some threshold (200 by default), and has reasonable defaults for directories to look in which are also suitable for Rails applications.
 
 h1. Comparison to Simian
 
-Simian is significantly faster at parsing when compared to flay, but doesn't understand the raw Ruby syntax quite as well.  That should indicate that Flay will give more relevant results whilst Simian can be used for people with large code bases that want faster feedback.  In practice though, it seems that the tools both find results that are a bit different from one another.  Simian can find relevant results that Flay doesn't.  Also, the nature of Ruby applications is such that the code bases are usually relatively small (when compared with large Java apps which is Simian's background), so the speed advantage of Simian is inconsequential.
+Simian is significantly faster at running when compared to flay, but doesn't understand the Ruby syntax anywhere near as well as flay does.  If you have chunks of code of 3 or 4 lines that have been copy-pasted and had a variable name changed, Simian will find them quite well.  Flay is much better at understanding smaller chunks of code that have been written independently but happen to be similar.  It has a much better understanding of the language under the covers because of the use of ruby_parser as well.  For example, Flay will understand that blocks using "{..}" as delimeters are the same as blocks using "do..end" as delimeters.
 
-I'd likely run both at this stage.  The overhead is low, and it seems safer.
+Simian is useful if:
+  - you want a super fast build (ie. milliseconds vs seconds is important to you.  See timing example below)
+  - you want to check for duplication across non-Ruby text files as well.
+  - you want to check for duplication in a *really* big code base (ie. you think all of Rails ain't so much code)
+
+Flay is useful if:
+  - you care about the fine grained detail in duplication checking in your code.
+
+My observation is that most people in Ruby community don't meet any of the criteria under Simian, and they should start with Flay.  One last option is actually to run both.  They do seem to get slightly different results, and the combined overhead of them is still low.
+
+h2. Timing example:
+
+$ time java -jar simian-2.2.22.jar -includes=/Library/Ruby/Gems/1.8/gems/activerecord-2.1.1/**/*.rb
+...
+real	0m0.773s
+user	0m0.647s
+sys	0m0.088s
+
+
+$ time find /Library/Ruby/Gems/1.8/gems/activerecord-2.1.1/ -name "*.rb" | xargs flay
+...
+real	0m14.474s
+user	0m13.454s
+sys	0m0.804s
 
 h1. The 'Eat Your Own Dog Food' check
 
@@ -85,4 +120,4 @@ Processing /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb
   /Library/Ruby/Gems/1.8/gems/flay-1.1.0/test/test_flay.rb:217
 
 
-Some output comes up from test code, but none in the production code from the tool itself.  Pretty good!
+Some output comes up from test code, but none in the production code from the tool itself.  Pretty good!  Ryan tells me that a good number of them are dupes on purpose, since Flay actually needs to test that :)
