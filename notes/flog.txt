@@ -55,15 +55,97 @@ h1. General Comments
 
 Flog is very simple to run and quickly get a feel for where some of the most complex methods in your system are.  The output being ordered based on the complexity of the code is also useful, as you can chip away at them in order.  I'd like to see the order going from least complex to most complex (it's currently the other way around) so that the most complex method was right in front of you in your terminal output when it finishes running.  That saves you scrolling back in your buffer to find the start of the command.  Outputs to text files or HTML should stay in the current order so they're at the top when opened.
 
+[[ "top" methods are the worst. I like that metaphor. I am often
+interested in the "top 20" worst methods and `head` does that quite
+nicely. `flog -q . | head`. I also run almost all my shells w/in
+emacs, so I have superior navigability... Asking eric (who is a poor
+vim user, bless his soul), he either redirects to a file or pipes
+through more `flog . | more`. ]]
+
 The breakdown of the complexity within the methods is not particularly helpful to me.  I tend to ignore the numbers assigned by flay once I fine the method, because I can see ways to refactor it to make it less complex.  I tend to refactor then run the tool again to see if the complexity has dropped.
 
+[[ no, it isn't... I'm thinking -q should be the default and -v should
+show said complexity ]]
+
 Flog has no rake task support out of the box.  Failing the build when scores above some threshold appear seems like an obvious addition.  There is no Rails plugin out of the box either, which might provide a rake task that knew to look inside 'app' and 'lib', but to ignore 'vendor' for code.
+
+[[ again, I won't do a rails plugin. that just doesn't make sense to
+me. ]]
+
+[[ rake task has been created and will go out in the next release.
+good suggestion. thanks. also, both the flog and flay rake tasks have
+been integrated into hoe, so everyone developing with hoe
+automatically gets these for free (assuming they have flog and flay
+installed) ]]
 
 I have two gripes with Flog.
 
 The first is that the code deviates from the published definition of the ABC metric.  Scores for various types of calls are assigned arbitrarily in the code.  For example, a comment in the code suggests that the Ryan doesn't like people calling 'inject', so he has given it a higher than normal score.  It therefore produces a number that basically tells you what Ryan might think of your code.  It's helpful, but doesn't particularly mean anything scientific.
 
+[[ Who the fuck made the claim that flog was scientific? HOWEVER, it
+is anything but arbitrary.
+
+Just to be clear:
+
+    arbitrary: based on random choice or personal whim, rather than
+               any reason or system
+
+and before you can object to that:
+
+    whim: a sudden desire or change of mind, esp. one that is unusual
+          or unexplained
+
+(oxford american dictionary)
+
+This is ANYTHING but arbitrary. This is based on many years of
+experience developing in many projects and companies, large and small.
+It is based on the amount of code I've ripped out of slow, bloated,
+undecipherable projects while consulting. It is based on years of
+teaching ruby both in the classroom and out.
+
+define_method and all forms of eval? more complex...
+
+include? reflective methods? dynamic message sends? more complex...
+but less so than the eval forms above, certainly.
+
+alias_method, alias, and singleton class definitions? more complex. 
+
+literals? name a software engineering book that doesn't point out that
+using literal values directly in your code is a great idea...
+
+and inject? For every proper functionally reductive use of inject I'll
+find you 100 that are more complex, slower, and harder to read forms
+of their #each counterparts. It is one of the most misused methods in
+ruby, bar-none. Do the benchmarks, it deserves to be penalized.
+]]
+
 The second gripe isn't really about Flog, but more about the lack of equally powerful tools for other metrics.  The ABC metric doesn't correlate very well at a detailed level with issues the community talks about.  I'd love to see a similar tool measuring cyclomatic complexity (but see notes on Saikuro) and NPath complexity.  Cyclomatic complexity counts the number of branches in your code, which gives you an indicator of the minimum number of tests you should write.  NPath complexity gives you a count of the total number of possible paths through your code, which gives you an indicator of the number of tests you could write to get complete coverage on your code.  Both of those things seem more pertinent to the community to me.
+
+[[
+If ABC metrics don't correlate very well with the issues the community
+is talking about, maybe it is because the community is focusing on the
+wrong stuff. Far too much emphasis is put on writing clevar and magic
+code rather than clear, clean, communicative, maintainable, fast, and
+testable code. This comes down from the community leaders themselves.
+It comes down from the bloggers. It comes down from everywhere. This I
+believe to be true and is the main reason why I give talks at
+conferences.
+
+Further, and perhaps of more value, I disagree that flog scores are
+not pertinent. I would challenge you to demonstrate significant
+negative divergance between cyclomatic complexity and flog's variant
+of ABC where real world testing is involved. If anything, you'll find
+that cyclomatic complexity diverges as it only accounts for complexity
+at a functional mathmatical level. It too is more than naive,
+especially about ruby. Flog understands ruby pretty well, and comes
+from and is directly influenced by testing challenges that we face. It
+even accounts for things like law of demeter violation by penalizing
+chained method sends. This is something that both cyclomatic and npath
+analysis entirely ignore.
+
+P.S. Look at those scores below. Find me a metric tool besides flog
+that'll score your DSL blocks like rake tasks or rspec specs.
+]]
 
 h1. The 'Eat Your Own Dog Food' check
 
@@ -149,5 +231,14 @@ it#should set the option to be verbose: (15.0)
 Flog#klass_name: (15.0)
 currently#should compute the same totals data as flog-1.1.0: (15.0)
 
-
 Flog will show the top 60% of the most complex code, so we always expect some output here.  The average of 12 per method seems excellent to me.  A few of the topmost entries in the list (I'd suggest things with a score of about 50 or higher) probably need some work though.
+
+[[
+Not entirely fair. I didn't write those specs and I'm having a bitch
+of a time reworking them. If you flog bin/flog and lib/flog.rb you'll
+see a flog score of just under 600 (and oddly, the average is still
+12).
+
+(gauntlet_flog is really more a part of gauntlet than a part of flog,
+but it made sense for me to package and maintain it with flog)
+]]
